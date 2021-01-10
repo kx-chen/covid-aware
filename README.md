@@ -32,5 +32,5 @@ For the Future
 * Analytics for users and venues of their number of customers and visits
 
 ## Resources Used
-* React, `react-router-dom` for frontend
+* React, `react-router-dom`, `react-qr-reader` for frontend
 * Firebase for backend: Firebase Hosting + Firestore
