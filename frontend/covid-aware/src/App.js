@@ -1,8 +1,10 @@
-import React from 'react';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import clsx from "clsx";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
+import Container from "@material-ui/core/Container";
 
 import Topbar from "./components/Topbar.jsx";
 import Sidebar from "./components/Sidebar.jsx";
@@ -11,10 +13,10 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -22,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -31,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   hide: {
-    display: 'none',
+    display: "none",
   },
   drawer: {
     width: drawerWidth,
@@ -41,24 +43,24 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
-},
+  },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -80,17 +82,38 @@ export default function PersistentDrawerLeft() {
   };
 
   return (
-      <div className={classes.root}>
-          <CssBaseline />
-          <Topbar classes={classes} open={open} handleDrawerOpen={handleDrawerOpen}/>
-          <Sidebar classes={classes} open={open} handleDrawerClose={handleDrawerClose} theme={theme}/>
-          <main
-              className={clsx(classes.content, {
-                  [classes.contentShift]: open,
-              })}
-          >
-              <div className={classes.drawerHeader} />
-              <Typography paragraph>
+    <div className={classes.root}>
+        <CssBaseline />
+        <Topbar
+            classes={classes}
+            open={open}
+            handleDrawerOpen={handleDrawerOpen}
+        />
+        <Sidebar
+            classes={classes}
+            open={open}
+            handleDrawerClose={handleDrawerClose}
+            theme={theme}
+        />
+        <main
+            className={clsx(classes.content, {
+                [classes.contentShift]: open,
+            })}
+        >
+            <div className={classes.drawerHeader} />
+            <Container
+                maxWidth="sm"
+                style={{ height: "100vh", paddingLeft: 40, paddingRight: 40, paddingTop: 100 }}
+            >
+                <TextField
+                    id="standard-basic"
+            label="Standard"
+            style={{
+              width: "100%",
+            }}
+          />
+        </Container>
+        {/* <Typography paragraph>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                   ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
                   facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
@@ -101,8 +124,8 @@ export default function PersistentDrawerLeft() {
                   imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
                   arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
                   donec massa sapien faucibus et molestie ac.
-              </Typography>
-              <Typography paragraph>
+                  </Typography>
+                  <Typography paragraph>
                   Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
                   facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
                   tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
@@ -112,8 +135,8 @@ export default function PersistentDrawerLeft() {
                   tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
                   nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
                   accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-              </Typography>
-          </main>
-      </div>
+              </Typography> */}
+      </main>
+    </div>
   );
 }
