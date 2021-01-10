@@ -1,16 +1,34 @@
-import React from "react";
-import Icon from '@material-ui/core/Icon';
-import CloudDoneRoundedIcon from '@material-ui/icons/CloudDoneRounded';
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { green } from '@material-ui/core/colors';
+import SvgIcon from '@material-ui/core/SvgIcon';
 
-export default function Success() {
-    
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > svg': {
+      margin: theme.spacing(2),
+    },
+  },
+}));
 
-
-    
-    return <div>
-        <center><CloudDoneRoundedIcon></CloudDoneRoundedIcon></center>
-        <center><h1>Success!</h1></center>
-        <center><h2>Thanks for checking in!</h2></center>
-    </div>;
+function HomeIcon(props) {
+  return (
+      // Apparently that's the mathematical instructions for drawing a cloud
+    <SvgIcon {...props}>
+      <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM10 17l-3.5-3.5 1.41-1.41L10 14.17 15.18 9l1.41 1.41L10 17z" />
+    </SvgIcon>
+  );
 }
+
+export default function SvgIconsColor() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <center><HomeIcon style={{ color: green[500], fontSize: 150 }} /></center>
+      <center><h1>Success!</h1></center>
+      <center><h2>Thanks for checking in!</h2></center>
+    </div>
+  );
+}
+
