@@ -76,7 +76,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default props => {
-    return (<Typography variant="h3" gutterBottom>
-        h3. Heading
-    </Typography>)
+    return (
+        <>
+            <Typography variant="h3" gutterBottom>
+                Account
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+                Name: Johnny Appleseed
+                Email: example@example.com
+                Phone number: +1 (000) 000-0000
+            </Typography>
+        </>
+    )
 }
