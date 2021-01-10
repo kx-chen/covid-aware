@@ -116,7 +116,7 @@ export default props => {
                     paddingTop: "10rem",
                 }}
             >
-
+                {props.children}
             </Container>
         </main>
     </div>

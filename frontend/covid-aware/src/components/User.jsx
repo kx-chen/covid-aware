@@ -76,52 +76,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default props => {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  return (
-    <div className={classes.root}>
-        <CssBaseline />
-        <Topbar
-            classes={classes}
-            open={open}
-            handleDrawerOpen={handleDrawerOpen}
-        />
-        <Sidebar
-            classes={classes}
-            open={open}
-            handleDrawerClose={handleDrawerClose}
-            theme={theme}
-        />
-        <main
-            className={clsx(classes.content, {
-                [classes.contentShift]: open,
-            })}
-        >
-            <div className={classes.drawerHeader} />
-            <Container
-                maxWidth="sm"
-                style={{
-                    height: "100%",
-                    paddingLeft: 40,
-                    paddingRight: 40,
-                    paddingTop: "10rem",
-                }}
-            >
-                <Typography variant="h3" gutterBottom>
-                    h3. Heading
-                </Typography>
-            </Container>
-      </main>
-    </div>
-  );
+    return (<Typography variant="h3" gutterBottom>
+        h3. Heading
+    </Typography>)
 }
