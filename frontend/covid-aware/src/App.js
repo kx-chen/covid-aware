@@ -29,13 +29,23 @@ export default function App() {
         <div>
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
+            {/*TODO: DRY!!!! IfFirebaseAuth/Unauth should be removed*/}
             <Navbar>
                 <Switch>
                     <Route path="/signup">
                         <Signup/>
                     </Route>
                     <Route path="/dashboard">
-                        <Dashboard />
+                        <IfFirebaseAuthed>
+                            {() => {
+                                return <Dashboard />;
+                            }}
+                        </IfFirebaseAuthed>
+                        <IfFirebaseUnAuthed>
+                            {() => {
+                                return <Login />;
+                            }}
+                        </IfFirebaseUnAuthed>
                     </Route>
 
                     <Route path="/login">
@@ -50,7 +60,7 @@ export default function App() {
                                     return <Login />;
                                 }}
                             </IfFirebaseUnAuthed>
-                            </div>
+                        </div>
                     </Route>
                     <Route path="/success">
                         <Success />
@@ -58,12 +68,11 @@ export default function App() {
                     <Route path="/about">
                         <About/>
                     </Route>
-                    <Route path="/venue">
-                        <Venue />
-                    </Route>
+                    <Route path="/venue/:venueId" component={Venue}/>
                     <Route path="/auth">
                         <Auth />
                     </Route>
+
                     <Route path="/404">
                         <div>
                             <h1>Page not found.</h1>
