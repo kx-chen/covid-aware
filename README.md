@@ -1,4 +1,4 @@
-# Covid-Aware
+# Covid-Aware 
 
 Submission for nwHacks. Built for easier contact tracing by having users scan QR codes upon entering venues.
 
@@ -21,12 +21,16 @@ This app provides an effective and quick way to implement contact tracing for lo
 * Make information more transparent and accessible
 
 ## Features
-* Implemented
+
+Implemented
 * Login / Registration for users
 * Searching / QR scanning upon entering a venue
-* For the Future
+
+For the Future
 * Finalize database access
 * Map for visualization of COVID cases
 * Analytics for users and venues of their number of customers and visits
 
-
+## Resources Used
+* React, `react-router-dom` for frontend
+* Firebase for backend: Firebase Hosting + Firestore
