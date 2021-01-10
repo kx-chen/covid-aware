@@ -22,10 +22,11 @@ import clsx from 'clsx';
 
 import About from "./About.jsx";
 import Success from "./Success.jsx";
+import Navbar from "./components/Navbar.jsx";
+import User from "./pages/User.jsx";
 
 import Topbar from "./components/Topbar.jsx";
 import Sidebar from "./components/Sidebar.jsx";
-import Navbar from "./components/Navbar.jsx";
 
 export default function App() {
   return (
@@ -36,6 +37,9 @@ export default function App() {
             <Switch>
                 <Route path="/">
                     <Navbar/>
+                </Route>
+                <Route path="/user">
+                    <User/>
                 </Route>
                 <Route path="/success">
                     <Success />
