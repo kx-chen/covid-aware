@@ -103,16 +103,26 @@ export default function PersistentDrawerLeft() {
             <div className={classes.drawerHeader} />
             <Container
                 maxWidth="sm"
-                style={{ height: "100vh", paddingLeft: 40, paddingRight: 40, paddingTop: 100 }}
+                style={{
+                    height: "100%",
+                    paddingLeft: 40,
+                    paddingRight: 40,
+                    paddingTop: "10rem",
+                }}
             >
+
                 <TextField
-                    id="standard-basic"
-            label="Standard"
-            style={{
-              width: "100%",
-            }}
-          />
-        </Container>
+                    id="filled-password-input"
+                    label="Venue ID"
+                    helperText="Enter the displayed ID by the venue or scan the QR code"
+                    type="text"
+                    autoComplete="current-password"
+                    variant="filled"
+                    style={{
+                        width: "100%",
+                    }}
+                />
+            </Container>
         {/* <Typography paragraph>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                   ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
