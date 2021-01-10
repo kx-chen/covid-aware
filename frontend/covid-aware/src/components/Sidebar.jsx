@@ -7,8 +7,9 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ScannerIcon from '@material-ui/icons/Scanner';
-import CameraIcon from '@material-ui/icons/Camera';
+
+import PersonIcon from '@material-ui/icons/Person';
+import HistoryIcon from '@material-ui/icons/History';
 import InfoIcon from '@material-ui/icons/Info';
 
 export default (props) => {
@@ -28,17 +29,17 @@ export default (props) => {
         </div>
         <Divider />
         <List>
-            <ListItem button key="Scan">
+            <ListItem button key="Profile">
                 <ListItemIcon>
-                    <CameraIcon />
+                    <PersonIcon />
                 </ListItemIcon>
-                <ListItemText primary="Scan" />
+                <ListItemText primary="Profile" />
             </ListItem>
-            <ListItem button key="My Scans">
+            <ListItem button key="History">
                 <ListItemIcon>
-                    <ScannerIcon />
+                    <HistoryIcon />
                 </ListItemIcon>
-                <ListItemText primary="My Scans" />
+                <ListItemText primary="History" />
             </ListItem>
             <ListItem button key="About">
                 <ListItemIcon>
