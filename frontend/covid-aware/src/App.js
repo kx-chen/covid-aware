@@ -26,6 +26,7 @@ import User from "./components/User.jsx";
 import Success from "./components/Success.jsx";
 import Search from "./components/Search.jsx";
 import Venue from "./components/Venue.jsx";
+import Login from './components/Login.jsx';
 
 import Topbar from "./components/Topbar.jsx";
 import Sidebar from "./components/Sidebar.jsx";
@@ -40,6 +41,9 @@ export default function App() {
                 <Switch>
                     <Route path="/user">
                         <User />
+                    </Route>
+                    <Route path="/login">
+                        <Login/>
                     </Route>
                     <Route path="/success">
                         <Success />
