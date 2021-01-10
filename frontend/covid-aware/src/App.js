@@ -122,7 +122,7 @@ export default function PersistentDrawerLeft() {
                     <FilledInput
                         id="venueIdInput"
                         label="Venue ID"
-                        // placeholder="Venue ID"
+                        style={{width: "100%"}}
                         placeholder="Enter the displayed ID by the venue or scan the QR code"
                         autoFocus={true}
                         autoComplete="current-password"
