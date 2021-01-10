@@ -21,7 +21,8 @@ import {
 import clsx from 'clsx';
 
 import About from "./About.jsx";
-import Success from "./Success.jsx";
+import Success from "./components/Success.jsx";
+import Venue from "./components/Venue.jsx";
 
 import Topbar from "./components/Topbar.jsx";
 import Sidebar from "./components/Sidebar.jsx";
@@ -33,15 +34,22 @@ export default function App() {
         <div>
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
+            <Navbar/>
             <Switch>
-                <Route path="/">
-                    <Navbar/>
-                </Route>
                 <Route path="/success">
                     <Success />
                 </Route>
                 <Route path="/about">
                     <About/>
+                </Route>
+                <Route path="/venue">
+                    <Venue />
+                </Route>
+                <Route path="/success">
+                    <Success />
+                </Route>
+                <Route path="/">
+                    <h1> this is the homepage my guy </h1>
                 </Route>
             </Switch>
         </div>

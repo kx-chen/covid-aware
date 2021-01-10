@@ -110,34 +110,13 @@ export default props => {
             <Container
                 maxWidth="sm"
                 style={{
-                    height: "100%",
+                    height: "10rem",
                     paddingLeft: 40,
                     paddingRight: 40,
                     paddingTop: "10rem",
                 }}
             >
-                <FormControl variant="filled">
-                    <InputLabel htmlFor="venueIdInput">Venue ID</InputLabel>
-                    <FilledInput
-                        id="venueIdInput"
-                        label="Venue ID"
-                        style={{width: "100%"}}
-                        placeholder="Enter the displayed ID by the venue or scan the QR code"
-                        autoFocus={true}
-                        autoComplete="current-password"
-                        variant="filled"
-                        style={{
-                            width: "100%",
-                        }}
-                        endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton>
-                                    <CenterFocusStrongIcon/>
-                                </IconButton>
-                            </InputAdornment>
-                        }
-                    />
-                </FormControl>
+
             </Container>
       </main>
     </div>
