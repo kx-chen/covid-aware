@@ -4,7 +4,14 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
+import FilledInput from '@material-ui/core/FilledInput';
 import Container from "@material-ui/core/Container";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
+
+import IconButton from '@material-ui/core/IconButton';
+import CenterFocusStrongIcon from '@material-ui/icons/CenterFocusStrong';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 import Topbar from "./components/Topbar.jsx";
 import Sidebar from "./components/Sidebar.jsx";
@@ -110,20 +117,30 @@ export default function PersistentDrawerLeft() {
                     paddingTop: "10rem",
                 }}
             >
-
-                <TextField
-                    id="filled-password-input"
-                    label="Venue ID"
-                    helperText="Enter the displayed ID by the venue or scan the QR code"
-                    type="text"
-                    autoComplete="current-password"
-                    variant="filled"
-                    style={{
-                        width: "100%",
-                    }}
-                />
+                <FormControl variant="filled">
+                    <InputLabel htmlFor="venueIdInput">Venue ID</InputLabel>
+                    <FilledInput
+                        id="venueIdInput"
+                        label="Venue ID"
+                        // placeholder="Venue ID"
+                        placeholder="Enter the displayed ID by the venue or scan the QR code"
+                        autoFocus={true}
+                        autoComplete="current-password"
+                        variant="filled"
+                        style={{
+                            width: "100%",
+                        }}
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton>
+                                    <CenterFocusStrongIcon/>
+                                </IconButton>
+                            </InputAdornment>
+                        }
+                    />
+                </FormControl>
             </Container>
-        {/* <Typography paragraph>
+            {/* <Typography paragraph>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                   ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
                   facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
