@@ -2,6 +2,7 @@
 
 # ide folders
 .idea/
+.eslintcache
 
 # dependencies
 /node_modules
