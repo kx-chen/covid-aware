@@ -29,23 +29,24 @@ import clsx from 'clsx';
 export default function App() {
   return (
     <Router>
-      <div>
-        <NavBar/>
-        {/* A <Switch> looks through its children <Route>s and
+        <div>
+            {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/success">
-            <Success />
-          </Route>
-          <Route path="/">
-            <About />
-          </Route>
-        </Switch>
+            <Switch>
+                <Route path="/">
+                    <NavBar/>
+                </Route>
+                <Route path="/success">
+                    <Success />
+                </Route>
+                <Route path="/about">
+                    <About/>
+                </Route>
+            </Switch>
       </div>
     </Router>
   );
 }
-
 
 function About() {
   return <h2>About</h2>;
