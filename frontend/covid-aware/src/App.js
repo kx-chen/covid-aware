@@ -1,39 +1,30 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import FilledInput from '@material-ui/core/FilledInput';
-import Container from "@material-ui/core/Container";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
-
-import IconButton from '@material-ui/core/IconButton';
-import CenterFocusStrongIcon from '@material-ui/icons/CenterFocusStrong';
-import InputAdornment from '@material-ui/core/InputAdornment';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+    Redirect,
 } from "react-router-dom";
 
-import clsx from 'clsx';
 
 import About from "./About.jsx";
 import Navbar from "./components/Navbar.jsx";
-import User from "./components/User.jsx";
+import Dashboard from "./components/Dashboard.jsx";
 import Success from "./components/Success.jsx";
 import Search from "./components/Search.jsx";
 import Venue from "./components/Venue.jsx";
 import Login from './components/Login.jsx';
 import Signup from "./components/Signup.jsx";
-
-import Topbar from "./components/Topbar.jsx";
-import Sidebar from "./components/Sidebar.jsx";
+import Auth from "./components/Auth.jsx";
+import { FirebaseAuthProvider, IfFirebaseAuthed, IfFirebaseUnAuthed } from "@react-firebase/auth";
+import { config } from "./config";
+import firebase from "firebase";
 
 export default function App() {
   return (
+  <FirebaseAuthProvider {...config} firebase={firebase}>
     <Router>
         <div>
             {/* A <Switch> looks through its children <Route>s and
@@ -43,11 +34,23 @@ export default function App() {
                     <Route path="/signup">
                         <Signup/>
                     </Route>
-                    <Route path="/user">
-                        <User />
+                    <Route path="/dashboard">
+                        <Dashboard />
                     </Route>
+
                     <Route path="/login">
-                        <Login/>
+                        <div>
+                            <IfFirebaseAuthed>
+                                {() => {
+                                    return <Redirect to="/about" />;
+                                }}
+                            </IfFirebaseAuthed>
+                            <IfFirebaseUnAuthed>
+                                {() => {
+                                    return <Login />;
+                                }}
+                            </IfFirebaseUnAuthed>
+                            </div>
                     </Route>
                     <Route path="/success">
                         <Success />
@@ -58,12 +61,23 @@ export default function App() {
                     <Route path="/venue">
                         <Venue />
                     </Route>
-                    <Route path="/">
+                    <Route path="/auth">
+                        <Auth />
+                    </Route>
+                    <Route path="/404">
+                        <div>
+                            <h1>Page not found.</h1>
+                            <Link to="/dashboard">Return Home.</Link>
+                        </div>
+                    </Route>
+                    <Redirect from='*' to='/404' />
+                    <Route exact path="/">
                         <Search />
                     </Route>
                 </Switch>
             </Navbar>
         </div>
     </Router>
+  </FirebaseAuthProvider>
   );
 }

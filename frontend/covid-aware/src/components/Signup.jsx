@@ -14,8 +14,8 @@ export default (props) => {
         <GoogleButton
             onClick={() => { console.log('Google button clicked') }}
         />
-        <Link variant="subtitle1" to="/signup">
-            I do not have an account.
+        <Link variant="subtitle1" to="/login">
+            I already have an account
         </Link>
     </>
     )
