@@ -9,7 +9,7 @@ export default (props) => {
     return (
     <>
         <Typography variant="h3" gutterBottom>
-            Login
+            Signup
         </Typography>
         <GoogleButton
             onClick={() => { console.log('Google button clicked') }}

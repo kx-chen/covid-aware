@@ -27,6 +27,7 @@ import Success from "./components/Success.jsx";
 import Search from "./components/Search.jsx";
 import Venue from "./components/Venue.jsx";
 import Login from './components/Login.jsx';
+import Signup from "./components/Signup.jsx";
 
 import Topbar from "./components/Topbar.jsx";
 import Sidebar from "./components/Sidebar.jsx";
@@ -39,6 +40,9 @@ export default function App() {
             renders the first one that matches the current URL. */}
             <Navbar>
                 <Switch>
+                    <Route path="/signup">
+                        <Signup/>
+                    </Route>
                     <Route path="/user">
                         <User />
                     </Route>
